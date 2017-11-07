@@ -2133,7 +2133,8 @@ function OnCityRangeStrikeButtonClick( playerID, cityID )
   UI.SetInterfaceMode(InterfaceModeTypes.SELECTION);
   --ARISTOS: fix for the range strike not showing odds window
   UI.DeselectAll();
-  UI.SelectCity( pCity );
+  -- GEORGWACKER: allow city range mode without centering the camera
+  UI.SelectCity( pCity, false );
   UI.SetInterfaceMode(InterfaceModeTypes.CITY_RANGE_ATTACK);
 
 end
@@ -2153,7 +2154,8 @@ function OnDistrictRangeStrikeButtonClick( playerID, districtID )
   end;
 
   UI.DeselectAll();
-  UI.SelectDistrict(pDistrict);
+  -- GEORGWACKER: allow district range mode without centering the camera
+  UI.SelectDistrict(pDistrict, false);
   UI.SetInterfaceMode(InterfaceModeTypes.DISTRICT_RANGE_ATTACK);
 end
 
