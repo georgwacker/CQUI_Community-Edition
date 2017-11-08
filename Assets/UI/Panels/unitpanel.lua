@@ -918,7 +918,8 @@ function View(data)
   end
 
   -- Populate Earned Promotions UI
-  if (not UILens.IsLensActive("Religion") and data.Combat > 0) then
+  -- GEORGWACKER: catch zero devide on MaxExperience to fix overflowing xp bars
+  if (not UILens.IsLensActive("Religion") and data.Combat > 0 and data.MaxExperience > 0) then
     Controls.XPArea:SetHide(false);
     Controls.XPBar:SetPercent( data.UnitExperience / data.MaxExperience );
     Controls.XPArea:SetToolTipString( Locale.Lookup("LOC_HUD_UNIT_PANEL_XP_TT", data.UnitExperience, data.MaxExperience, data.UnitLevel+1 ) );
