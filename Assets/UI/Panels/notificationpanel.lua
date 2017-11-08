@@ -1165,6 +1165,8 @@ function OnCityRangeAttack( notificationEntry : NotificationType )
 		if pPlayer ~= nil then
 			local attackCity = pPlayer:GetCities():GetFirstRangedAttackCity();
 			if(attackCity ~= nil) then
+			    -- GEORGWACKER: recenter camera on the attacking city
+				UI.LookAtPlot(attackCity:GetX(), attackCity:GetY());
 				LuaEvents.CQUI_Strike_Enter();
         LuaEvents.CQUI_CityRangeStrike(Game.GetLocalPlayer(), attackCity:GetID());
 			else
